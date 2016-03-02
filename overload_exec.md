@@ -63,6 +63,6 @@ bool QEventDispatcherGlib::processEvents(QEventLoop::ProcessEventsFlags flags)
 451             qDebug()<<"g_main_context_iteration return true.";
 452     }
 ```
-&emsp;&emsp;这样能大大降低信号丢失（阻塞）的概率（这种修改方式并不能完全解决阻塞，只是极大地降低了发生概率）。
+
 
 
