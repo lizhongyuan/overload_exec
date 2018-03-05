@@ -1,7 +1,7 @@
-####1. 问题描述
+###1. 问题描述###
 &emsp;&emsp;使用qtwebview封装了一个简单浏览器，调用QTest接口模拟鼠标动作。当模拟动作执行的过程中，出现网络中断，有小概率造成程序阻塞。
 
-####2. 调试
+####2. 调试####
 >gdb调试
 
 
@@ -39,7 +39,7 @@ bool QEventDispatcherGlib::processEvents(QEventLoop::ProcessEventsFlags flags)
 >相关资料：https://developer.gnome.org/glib/2.30/glib-The-Main-Event-Loop.html
 &emsp;&emsp;Single iterations of a GMainContext can be run with g_main_context_iteration(). In some cases, more detailed control of exactly how the details of the main loop work is desired, for instance, when integrating the GMainLoop with an external main loop. In such cases, you can call the component functions of g_main_context_iteration() directly. These functions are g_main_context_prepare(),g_main_context_query(), g_main_context_check() and g_main_context_dispatch().
 
-####3. 解决这个问题
+####3. 解决这个问题####
 &emsp;&emsp;为QEventLoop::exec()添加一个重载函数exec(int waitTime);对应的processEvents也添加waitTime参数。
 425至427部分代码修改为：
 ```
